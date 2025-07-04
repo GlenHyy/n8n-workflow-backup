@@ -1,0 +1,709 @@
+{
+  "active": false,
+  "connections": {
+    "获取公众号当天发文": {
+      "main": [
+        [
+          {
+            "node": "多篇文章分批处理",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "获取文章网页源代码": {
+      "main": [
+        [
+          {
+            "node": "提取文章标题和内容",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "提取文章标题和内容": {
+      "main": [
+        [
+          {
+            "node": "提取文章纯文本",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "提取文章纯文本": {
+      "main": [
+        [
+          {
+            "node": "上传Dify知识库",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "上传Fastgpt知识库",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "多篇文章分批处理": {
+      "main": [
+        [
+          {
+            "node": "获取文章网页源代码",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "配置公众号biz": {
+      "main": [
+        [
+          {
+            "node": "多个公众号分批处理",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "多个公众号分批处理": {
+      "main": [
+        [
+          {
+            "node": "获取公众号当天发文",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "定时触发器": {
+      "main": [
+        [
+          {
+            "node": "配置公众号biz",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Start": {
+      "main": [
+        [
+          {
+            "node": "初始化设置",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "初始化设置": {
+      "main": [
+        [
+          {
+            "node": "循环入口",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "循环入口": {
+      "main": [
+        [
+          {
+            "node": "循环获取每页数据",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "循环获取每页数据": {
+      "main": [
+        [
+          {
+            "node": "合并当页数据",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "是否还有下一页?": {
+      "main": [
+        [
+          {
+            "node": "设置下一页页码",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "提取所有URL并格式化",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Convert to File1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "设置下一页页码": {
+      "main": [
+        [
+          {
+            "node": "循环入口",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "合并当页数据": {
+      "main": [
+        [
+          {
+            "node": "是否还有下一页?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "提取所有URL并格式化": {
+      "main": [
+        [
+          {
+            "node": "Convert to File",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Convert to File": {
+      "main": [
+        [
+          {
+            "node": "Read/Write Files from Disk",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Convert to File1": {
+      "main": [
+        [
+          {
+            "node": "Read/Write Files from Disk1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-07-02T09:18:48.667Z",
+  "id": "LppIF95jKjizfQVm",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "监控公众号，自动更新文章到私有知识库",
+  "nodes": [
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://www.dajiala.com/fbmain/monitor/v3/post_condition",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"biz\": \"{{ $json.wechatmp_biz }}\",\n  \"url\": \"https://mp.weixin.qq.com/s?__biz=MjM5MTM5NjUzNA==&mid=2652494556&idx=1&sn=4995d845ad2ef1205136936f65ae4adc&chksm=bd5b5d058a2cd4139bbd92c8cd23d52f65ef260eedf8cbc6d25a4ab0992f08d01da81#rd\",\n  \"name\": \"\",\n  \"page\": 1,\n  \"key\": \"{{ $('配置公众号biz').item.json.apikey }}\",\n  \"verifycode\": \"\"\n} ",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -140,
+        -260
+      ],
+      "id": "a17ce05d-5914-4a1a-b35a-48726e792cde",
+      "name": "获取公众号当天发文"
+    },
+    {
+      "parameters": {
+        "url": "={{ $json.url }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "user-agent",
+              "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -160,
+        20
+      ],
+      "id": "c2415174-2df7-4410-be45-50d6802449ba",
+      "name": "获取文章网页源代码"
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "// 假设上一个节点返回的HTML内容在 'data' 字段中\nconst html = $input.item.json.data;\n\n// 初始化变量\nlet title = '';\nlet contentDiv = '';\nlet content = '';\n\nif (html) {\n    // 1. 提取标题 (使用 's' 标志使 '.' 匹配换行符，等同于 Python 的 re.S)\n    const titleMatch = html.match(/<h1[^>]*id=[\"']activity-name[\"'][^>]*>(.*?)<\\/h1>/s);\n    title = titleMatch ? titleMatch[1].trim() : '';\n\n    // 2. 提取文章内容区域\n    const contentDivMatch = html.match(/<div[^>]*id=[\"']js_content[\"'][^>]*>(.*?)<\\/div>/s);\n    contentDiv = contentDivMatch ? contentDivMatch[1] : '';\n    \n    // 3. 处理内容区域，提取图片和文本\n    if (contentDiv) {\n        // 用于存储已处理过的文本，避免重复\n        const seenTexts = new Set();\n        \n        // 正则表达式，匹配所有img标签或被包裹的文本\n        // 使用 'g' 标志进行全局搜索，等同于 Python 的 findall\n        const regex = /(<img[^>]*data-src=[\"'](.*?)[\"\\'][^>]*>)|>([^<]+)</g;\n        \n        // 使用 matchAll 获取所有匹配项\n        const matches = contentDiv.matchAll(regex);\n\n        for (const match of matches) {\n            // match[2] 是图片链接的捕获组\n            // match[3] 是文本内容的捕-获组\n            const imgSrc = match[2];\n            const text = match[3];\n\n            if (imgSrc) {\n                // 如果是图片，构建img标签\n                const imgTag = `<img src=\"${imgSrc}\" />`;\n                content += imgTag + \"\\n\";\n            } else if (text) {\n                // 如果是文本，去除首尾空格\n                const trimmedText = text.trim();\n                // 如果文本不为空且之前未出现过，则添加\n                if (trimmedText && !seenTexts.has(trimmedText)) {\n                    content += trimmedText + \"\\n\";\n                    seenTexts.add(trimmedText);\n                }\n            }\n        }\n    }\n}\n\n// 4. 准备最终输出的对象\nconst result = {\n    \"title\": title,\n    \"content\": content.trim(), // 去除末尾可能多余的换行符\n    // \"segments\": content.trim().split('<img src=') // 按图片标签分割内容\n};\n\n// 5. n8n的Code节点标准返回格式\nreturn {\n    json: result\n};"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        100,
+        20
+      ],
+      "id": "077e119b-5b0c-4f69-8ec3-5f761357004d",
+      "name": "提取文章标题和内容"
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "// 获取上一个节点传入的完整数据\nconst item = $input.item.json;\n\n// 从数据中提取需要处理的content字段\nconst originalContent = item.content;\n\n// 判断 originalContent 是否为有效、非空的字符串\nif (originalContent && typeof originalContent === 'string' && originalContent.trim() !== '') {\n    // 如果是有效字符串，则执行清理流程\n    const cleanedText = originalContent\n        // 1. 移除所有的<img>图片标签\n        .replace(/<img[^>]*>/g, '')\n        \n        // 2. 移除所有其他HTML标签 (例如 <p>, <strong>等)\n        .replace(/<[^>]*>/g, '')\n\n        // 3. 替换HTML的空格实体(&nbsp;)为一个普通空格\n        .replace(/&nbsp;/g, ' ')\n\n        // 4.【新增】移除所有的英文双引号 (\")\n        .replace(/\"/g, '')\n\n        // 5. 将换行符(\\n)替换为一个空格\n        .replace(/\\n/g, ' ')\n\n        // 6. 将两个或以上的连续空格替换为单个空格\n        .replace(/\\s{2,}/g, ' ')\n\n        // 7. 去除文本首尾的空格\n        .trim();\n    \n    // 将清理后的文本赋值给新字段\n    item.plain_text_content = cleanedText;\n\n} else {\n    // 如果原始 content 无效或为空，则明确地将新字段赋值为空字符串\n    item.plain_text_content = \"\";\n}\n\n// 返回包含了新字段的完整数据，以供后续节点使用\nreturn {\n  json: item\n};"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        340,
+        20
+      ],
+      "id": "fcd68d21-5f75-4703-9ab3-6a74afb1769e",
+      "name": "提取文章纯文本"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://Fastgpt地址:端口/api/core/dataset/collection/create/text",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer 填fastgpt的apikey"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"text\": \"{{ $json.title }}{{ $json.plain_text_content }}\",\n  \"datasetId\": \"填写知识库Id\",\n  \"parentId\": \"\",\n  \"name\": \"{{ $json.title }}\",\n  \"trainingType\": \"qa\",\n  \"chunkSettingMode\": \"auto\",\n  \"qaPrompt\": \"\"\n}",
+        "options": {
+          "redirect": {
+            "redirect": {}
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        580,
+        140
+      ],
+      "id": "9f377a15-4c2a-46c5-99a1-1c8448eaa3f4",
+      "name": "上传Fastgpt知识库"
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "data",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        100,
+        -260
+      ],
+      "id": "fddb051e-1e40-499f-8bee-3917bde1ebe7",
+      "name": "多篇文章分批处理"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://填写Dify的地址/v1/datasets/知识库Id/document/create_by_text",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer 填写Dify的apikey"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n    \"name\": \"{{ $json.title }}\",\n    \"text\": \"{{ $json.title }}{{ $json.plain_text_content }}\",\n    \"indexing_technique\": \"high_quality\",\n    \"doc_form\": \"qa_model\",\n    \"doc_language\": \"Chinese\",\n    \"process_rule\": {\n        \"mode\": \"custom\",\n        \"rules\": {\n            \"pre_processing_rules\": [\n                {\"id\": \"remove_extra_spaces\", \"enabled\": true},\n                {\"id\": \"remove_urls_emails\", \"enabled\": true}\n            ],\n            \"segmentation\": {\n                \"separator\": \"\\n\\n\",\n                \"max_tokens\": 1000\n            }\n        }\n    },\n    \"retrieval_model\": {\n        \"search_method\": \"hybrid_search\",\n        \"reranking_enable\": true,\n        \"reranking_mode\": \"reranking_model\",\n        \"reranking_model\": {\n            \"reranking_provider_name\": \"siliconflow\",\n            \"reranking_model_name\": \"BAAI/bge-reranker-v2-m3\"\n        },\n        \"top_k\": 5,\n        \"score_threshold_enabled\": true,\n        \"score_threshold\": 0.5,\n        \"semantic_weight\": 0.7,\n        \"keyword_weight\": 0.3\n    },\n    \"embedding_model\": \"BAAI/bge-m3\",\n    \"embedding_model_provider\": \"siliconflow\"\n}",
+        "options": {
+          "redirect": {
+            "redirect": {}
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        580,
+        -120
+      ],
+      "id": "8fc6c364-413c-42d2-96e0-1a1488657cac",
+      "name": "上传Dify知识库"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "0500e40f-4191-4a27-b203-d4d6a21ddf0f",
+              "name": "wechatmp_biz",
+              "value": "=[\"MzA5NDc1NzQ4MA==\",\"Mzg5MTU1NTE1OQ==\"]",
+              "type": "array"
+            },
+            {
+              "id": "ce70e80e-3096-4194-847a-f8bdfff1bbac",
+              "name": "apikey",
+              "value": "填入极致了平台的apikey",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -140,
+        -520
+      ],
+      "id": "dab19b67-5123-4eee-80ed-0577f2b6e874",
+      "name": "配置公众号biz"
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "wechatmp_biz",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        100,
+        -520
+      ],
+      "id": "94974025-ae81-4811-bf47-93d3a779ec08",
+      "name": "多个公众号分批处理"
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "triggerAtHour": 23,
+              "triggerAtMinute": 59
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -360,
+        -520
+      ],
+      "id": "64c5cbd5-bac5-4597-a49b-a84b0e2ab826",
+      "name": "定时触发器"
+    },
+    {
+      "parameters": {},
+      "id": "2ae08b45-9e22-4352-a665-a4be589549f8",
+      "name": "Start",
+      "type": "n8n-nodes-base.start",
+      "typeVersion": 1,
+      "position": [
+        960,
+        -300
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "1d86f9a7-578d-4f1b-857e-3843d4677271",
+              "name": "page",
+              "value": 1,
+              "type": "number"
+            },
+            {
+              "id": "766289b4-b490-48e0-a4bd-b0f345591942",
+              "name": "all_articles",
+              "value": "=[]",
+              "type": "array"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "351a35f0-4f01-4b55-bdea-94097a395dfa",
+      "name": "初始化设置",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1160,
+        -300
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "9b0ea5c5-e5ab-40e5-812d-775f83ba682b",
+      "name": "循环入口",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        1380,
+        -300
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://www.dajiala.com/fbmain/monitor/v3/post_history",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n        \"biz\": \"请填写公众号的biz\",\n        \"key\": \"请填写极致了平台的apikey\",\n        \"url\": \"https://mp.weixin.qq.com/s?__biz=请填写公众号的biz&mid=2652494556&idx=1&sn=4995d845ad2ef1205136936f65ae4adc&chksm=bd5b5d058a2cd4139bbd92c8cd23d52f65ef260eedf8cbc6d25a4ab0992f08d01da81#rd\",\n        \"name\": \"\",\n        \"page\": {{ $json.page }},\n        \"verifycode\": \"\"\n    }",
+        "options": {}
+      },
+      "id": "3ec20573-50a4-44aa-bcdd-664db1551aaf",
+      "name": "循环获取每页数据",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1600,
+        -300
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "leftValue": "={{ $json.page }}",
+              "rightValue": "={{ $('循环获取每页数据').item.json.body.total_page }}",
+              "operator": {
+                "type": "number",
+                "operation": "lower"
+              },
+              "id": "943e20fd-7dd7-4029-aca4-791eb76729cb"
+            },
+            {
+              "id": "3af536b7-92e8-47c0-9099-caddae52be05",
+              "leftValue": "={{ $json.page }}",
+              "rightValue": "={{ $('循环获取每页数据').item.json.total_page }}",
+              "operator": {
+                "type": "number",
+                "operation": "lt"
+              }
+            }
+          ],
+          "combinator": "or"
+        },
+        "options": {}
+      },
+      "id": "d00106eb-deb5-43ce-8441-c06e42bf2f18",
+      "name": "是否还有下一页?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        2020,
+        -300
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "2702435f-14fc-4f0e-8594-e85cc12b5003",
+              "name": "page",
+              "value": "={{ $json.page + 1 }}",
+              "type": "number"
+            },
+            {
+              "id": "a933f769-12b7-4a00-9833-281b37d8004f",
+              "name": "all_articles",
+              "value": "={{ $json.all_articles }}",
+              "type": "array"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "33cb1bed-41ec-41d8-90fe-201f2cf8b0fa",
+      "name": "设置下一页页码",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2000,
+        60
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "84de3701-4431-4e78-9a3d-a4170e5b7cdd",
+              "name": "all_articles",
+              "value": "={{ $('循环入口').item.json.all_articles.concat($json.data) }}",
+              "type": "array"
+            },
+            {
+              "id": "f501b87a-364e-4f7f-8c35-8664052f7596",
+              "name": "page",
+              "value": "={{ $json.now_page }}",
+              "type": "number"
+            },
+            {
+              "id": "d1770d40-919b-4870-b14c-d23dadb9503c",
+              "name": "total_page",
+              "value": "={{ $json.total_page }}",
+              "type": "number"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "4a97450f-b92f-4052-9fe1-9c0954edf3f6",
+      "name": "合并当页数据",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1800,
+        -300
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "const items = $input.all();\nconst urls = items[0].json.all_articles.map(article => article.url).join('\\n');\n\n// 返回一个包含所有url字符串的对象\nreturn [{ json: { urls_string: urls } }];"
+      },
+      "id": "b2353f97-2f04-4df5-bfae-1d20234f9c4a",
+      "name": "提取所有URL并格式化",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2320,
+        -220
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "write",
+        "fileName": "/tmp/urls.txt",
+        "dataPropertyName": "=data",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.readWriteFile",
+      "typeVersion": 1,
+      "position": [
+        2760,
+        -220
+      ],
+      "id": "9f703807-c9f9-46db-ab0b-585128bc55d9",
+      "name": "Read/Write Files from Disk"
+    },
+    {
+      "parameters": {
+        "operation": "toText",
+        "sourceProperty": "urls_string",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.convertToFile",
+      "typeVersion": 1.1,
+      "position": [
+        2540,
+        -220
+      ],
+      "id": "6ba293c8-0f7f-419e-895a-f6c2a32158ba",
+      "name": "Convert to File"
+    },
+    {
+      "parameters": {
+        "operation": "toJson",
+        "binaryPropertyName": "=data",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.convertToFile",
+      "typeVersion": 1.1,
+      "position": [
+        2380,
+        -440
+      ],
+      "id": "a31d2399-a56e-49ad-a6b5-44d0fa15f0cf",
+      "name": "Convert to File1",
+      "alwaysOutputData": false
+    },
+    {
+      "parameters": {
+        "operation": "write",
+        "fileName": "/tmp/all_data.json",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.readWriteFile",
+      "typeVersion": 1,
+      "position": [
+        2680,
+        -440
+      ],
+      "id": "9d17b87d-131f-4d15-aefb-57d651fd7ecf",
+      "name": "Read/Write Files from Disk1"
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2025-07-03T10:45:03.514Z",
+      "updatedAt": "2025-07-03T10:45:03.514Z",
+      "id": "Op1e07ifElT4acZ0",
+      "name": "blog"
+    },
+    {
+      "createdAt": "2025-07-03T10:49:07.977Z",
+      "updatedAt": "2025-07-03T10:49:07.977Z",
+      "id": "nq6uX1d3C1lNTGGR",
+      "name": "content-produce"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2025-07-03T10:49:40.000Z",
+  "versionId": "77385098-1eba-40d4-899c-6d2520e6dbf4"
+}
