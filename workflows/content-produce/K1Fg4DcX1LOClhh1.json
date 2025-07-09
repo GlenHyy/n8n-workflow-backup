@@ -1154,12 +1154,18 @@
         1500
       ],
       "webhookId": "cfc2a53d-14a7-47e1-8385-c0b0792d9843",
-      "typeVersion": 2.1
+      "typeVersion": 2.1,
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "rixMgXzFveoU2Spz",
+          "name": "Gmail account"
+        }
+      }
     },
     {
       "parameters": {
         "operation": "get",
-        "documentURL": "=12345"
+        "documentURL": "=16_cHg3gtgnUNMD1QRtk3a664J5L0HTPXLoH3qgOhRx0"
       },
       "id": "e51df48c-31ca-4247-9798-0d39814b9be7",
       "name": "Social Media Schema",
@@ -1168,12 +1174,18 @@
         -2300,
         1580
       ],
-      "typeVersion": 2
+      "typeVersion": 2,
+      "credentials": {
+        "googleDocsOAuth2Api": {
+          "id": "SC6iPxWbfkrDAsyn",
+          "name": "Google Docs account"
+        }
+      }
     },
     {
       "parameters": {
         "operation": "get",
-        "documentURL": "=12345"
+        "documentURL": "=1jRSjV3_MmH1kaTzH0qEc6jk0GtME-WQV485BtqcnPJs"
       },
       "id": "806d08d7-4da8-4e22-9f41-befba2b7f6d4",
       "name": "Social Media System Prompt",
@@ -1182,7 +1194,13 @@
         -2300,
         1860
       ],
-      "typeVersion": 2
+      "typeVersion": 2,
+      "credentials": {
+        "googleDocsOAuth2Api": {
+          "id": "SC6iPxWbfkrDAsyn",
+          "name": "Google Docs account"
+        }
+      }
     },
     {
       "parameters": {
@@ -1229,6 +1247,12 @@
         340
       ],
       "typeVersion": 4.2,
+      "credentials": {
+        "facebookGraphApi": {
+          "id": "cncGf6job9NB49aL",
+          "name": "Facebook Graph account"
+        }
+      },
       "onError": "continueRegularOutput"
     },
     {
@@ -1245,6 +1269,12 @@
       ],
       "typeVersion": 2,
       "alwaysOutputData": true,
+      "credentials": {
+        "twitterOAuth2Api": {
+          "id": "KrIIiIDDRy6SXDNC",
+          "name": "X account"
+        }
+      },
       "onError": "continueRegularOutput"
     },
     {
@@ -1277,6 +1307,12 @@
       ],
       "typeVersion": 1,
       "alwaysOutputData": true,
+      "credentials": {
+        "facebookGraphApi": {
+          "id": "cncGf6job9NB49aL",
+          "name": "Facebook Graph account"
+        }
+      },
       "onError": "continueRegularOutput"
     },
     {
@@ -1307,6 +1343,12 @@
       ],
       "typeVersion": 1,
       "alwaysOutputData": true,
+      "credentials": {
+        "facebookGraphApi": {
+          "id": "cncGf6job9NB49aL",
+          "name": "Facebook Graph account"
+        }
+      },
       "onError": "continueRegularOutput"
     },
     {
@@ -1358,7 +1400,13 @@
         680
       ],
       "webhookId": "abfae12d-ddcf-4981-ad33-bb7a8cc115a2",
-      "typeVersion": 2.1
+      "typeVersion": 2.1,
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "rixMgXzFveoU2Spz",
+          "name": "Gmail account"
+        }
+      }
     },
     {
       "parameters": {
@@ -1712,7 +1760,13 @@
         0,
         1800
       ],
-      "typeVersion": 3
+      "typeVersion": 3,
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "IGWcSLM7aG0uhcMf",
+          "name": "Google Drive account"
+        }
+      }
     },
     {
       "parameters": {
@@ -1788,7 +1842,13 @@
         800,
         1940
       ],
-      "typeVersion": 3
+      "typeVersion": 3,
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "IGWcSLM7aG0uhcMf",
+          "name": "Google Drive account"
+        }
+      }
     },
     {
       "parameters": {
@@ -1894,7 +1954,13 @@
       ],
       "webhookId": "93342863-02c0-42ee-98c3-a2ec72b3bf12",
       "typeVersion": 1.2,
-      "alwaysOutputData": true
+      "alwaysOutputData": true,
+      "credentials": {
+        "telegramApi": {
+          "id": "4iWBsb2gQ2zPn2xL",
+          "name": "Telegram account"
+        }
+      }
     },
     {
       "parameters": {
@@ -1912,7 +1978,13 @@
         1980
       ],
       "webhookId": "93342863-02c0-42ee-98c3-a2ec72b3bf12",
-      "typeVersion": 1.2
+      "typeVersion": 1.2,
+      "credentials": {
+        "telegramApi": {
+          "id": "4iWBsb2gQ2zPn2xL",
+          "name": "Telegram account"
+        }
+      }
     },
     {
       "parameters": {
@@ -2168,7 +2240,13 @@
         -600,
         200
       ],
-      "typeVersion": 3
+      "typeVersion": 3,
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "IGWcSLM7aG0uhcMf",
+          "name": "Google Drive account"
+        }
+      }
     },
     {
       "parameters": {
@@ -2418,7 +2496,13 @@
         -960,
         1900
       ],
-      "typeVersion": 1
+      "typeVersion": 1,
+      "credentials": {
+        "serpApi": {
+          "id": "fQ0am4AxxOCQTfNf",
+          "name": "SerpAPI account"
+        }
+      }
     },
     {
       "parameters": {
@@ -2487,7 +2571,7 @@
     {
       "parameters": {
         "content": "## 5️⃣ Dynamic Image Creation to Match Social Post & Platform Schema\n\n- Visual consistency: Generate platform-optimized images that match content themes\n\n- Automated alt text: Create accessibility-compliant image descriptions\n\n- Multi-format output: Generate images in various dimensions for different platforms\n\n- Brand compliance: Ensure all visuals align with brand guidelines\n\n- Reduced design bottlenecks: Eliminate waiting for custom graphics for each post",
-        "height": 520,
+        "height": 80,
         "width": 340,
         "color": 7
       },
@@ -2496,7 +2580,7 @@
       "type": "n8n-nodes-base.stickyNote",
       "position": [
         -820,
-        2240
+        2680
       ],
       "typeVersion": 1
     },
@@ -2639,7 +2723,7 @@
     },
     {
       "parameters": {
-        "model": "qwen/qwen3-235b-a22b:free",
+        "model": "qwen/qwen3-8b:free",
         "options": {
           "responseFormat": "json_object"
         }
@@ -2651,11 +2735,17 @@
         640
       ],
       "id": "4bf13e7d-ced1-4556-9ffb-58c723f9adf9",
-      "name": "OpenRouter Chat Model"
+      "name": "OpenRouter Chat Model",
+      "credentials": {
+        "openRouterApi": {
+          "id": "iKzEedVHAljs5DI9",
+          "name": "OpenRouter account"
+        }
+      }
     },
     {
       "parameters": {
-        "model": "qwen/qwen3-32b:free",
+        "model": "qwen/qwen3-8b:free",
         "options": {
           "responseFormat": "text"
         }
@@ -2667,11 +2757,17 @@
         860
       ],
       "id": "1ab36811-55d0-457f-a26d-e342ca77d2ca",
-      "name": "OpenRouter Chat Model1"
+      "name": "OpenRouter Chat Model1",
+      "credentials": {
+        "openRouterApi": {
+          "id": "iKzEedVHAljs5DI9",
+          "name": "OpenRouter account"
+        }
+      }
     },
     {
       "parameters": {
-        "model": "deepseek/deepseek-chat-v3-0324:free",
+        "model": "google/gemini-2.0-flash-exp:free",
         "options": {
           "responseFormat": "json_object"
         }
@@ -2680,10 +2776,16 @@
       "typeVersion": 1,
       "position": [
         -1220,
-        1900
+        1880
       ],
       "id": "7fa94c32-35a9-49f4-87e5-1efc0096c219",
-      "name": "OpenRouter Chat Model2"
+      "name": "OpenRouter Chat Model2",
+      "credentials": {
+        "openRouterApi": {
+          "id": "iKzEedVHAljs5DI9",
+          "name": "OpenRouter account"
+        }
+      }
     },
     {
       "parameters": {
@@ -2699,26 +2801,16 @@
         1680
       ],
       "id": "b7858156-df43-415d-b95f-1da843f8da7e",
-      "name": "OpenRouter Chat Model3"
+      "name": "OpenRouter Chat Model3",
+      "credentials": {
+        "openRouterApi": {
+          "id": "iKzEedVHAljs5DI9",
+          "name": "OpenRouter account"
+        }
+      }
     }
   ],
   "pinData": {
-    "Social Media Schema": [
-      {
-        "json": {
-          "content": "<common>\n{\n    \"type\": \"object\",\n    \"properties\": {\n        \"hashtags\": {\n            \"type\": \"array\",\n            \"items\": {\n                \"type\": \"string\"\n            }\n        },\n        \"image_suggestion\": {\n            \"type\": \"string\"\n        }\n    }\n}\n</common>\n\n<root>\n{\n    \"type\": \"object\",\n    \"properties\": {\n        \"name\": {\n            \"type\": \"string\"\n        },\n        \"description\": {\n            \"type\": \"string\"\n        },\n        \"additional_notes\": {\n            \"type\": \"string\"\n        }\n    }\n}\n</root>\n\n<linkedin>\n{\n    \"type\": \"object\",\n    \"properties\": {\n        \"post\": {\n            \"type\": \"string\"\n        },\n        \"call_to_action\": {\n            \"type\": \"string\"\n        }\n    }\n}\n</linkedin>\n\n<instagram>\n{\n    \"type\": \"object\",\n    \"properties\": {\n        \"caption\": {\n            \"type\": \"string\"\n        },\n        \"emojis\": {\n            \"type\": \"array\",\n            \"items\": {\n                \"type\": \"string\"\n            }\n        },\n        \"call_to_action\": {\n            \"type\": \"string\"\n        }\n    }\n}\n</instagram>\n\n<facebook>\n{\n    \"type\": \"object\",\n    \"properties\": {\n        \"post\": {\n            \"type\": \"string\"\n        },\n        \"call_to_action\": {\n            \"type\": \"string\"\n        }\n    }\n}\n</facebook>\n\n<xtwitter>\n{\n    \"type\": \"object\",\n    \"properties\": {\n        \"video_suggestion\": {\n            \"type\": \"string\"\n        },\n        \"post\": {\n            \"type\": \"string\"\n        },\n        \"character_limit\": {\n            \"type\": \"integer\"\n        }\n    }\n}\n</xtwitter>\n\n<threads>\n{\n    \"type\": \"object\",\n    \"properties\": {\n        \"text_post\": {\n            \"type\": \"string\"\n        },\n        \"call_to_action\": {\n            \"type\": \"string\"\n        }\n    }\n}\n</threads>\n\n<youtube_short>\n{\n    \"type\": \"object\",\n    \"properties\": {\n        \"video_suggestion\": {\n            \"type\": \"string\"\n        },\n        \"title\": {\n            \"type\": \"string\"\n        },\n        \"description\": {\n            \"type\": \"string\"\n        },\n        \"call_to_action\": {\n            \"type\": \"string\"\n        }\n    }\n}\n</youtube_short>\n\n\n\n",
-          "documentId": "[your-doc-id-here]"
-        }
-      }
-    ],
-    "Social Media System Prompt": [
-      {
-        "json": {
-          "content": "<system>\nYou are a specialized content creation AI for social media platforms.\nYour primary function is generating platform-optimized social media content across various platforms including LinkedIn, Instagram, Facebook, Twitter (X), Threads, and YouTube Shorts. Each piece of content must:\nMatch the specific platform's audience expectations and algorithm preferences\nShowcase relevant expertise in your field\nDeliver actionable insights for your target audience\nDrive meaningful engagement through value-driven content\nOBJECTIVES:\nCreate platform-specific content following each platform's best practices\nImplement strategic hashtag usage combining general and trending tags\nDesign content that encourages user interaction and community building\nMaintain consistent brand voice while adapting to platform requirements\nIncorporate data-driven insights to maximize content performance\nOUTPUT REQUIREMENTS:\nDeliver content in valid JSON format according to the platform-specific schema\nInclude all required fields as specified in the schema\nOmit any explanatory text or code fencing in your response\nTailor content specifically to the platform indicated in the user's request\nFor each content request, adapt your output based on the platform guidelines and ensure it aligns with your organization's mission and values.  Never provide URLS for video or image suggestions and only describe the suggestion.\n</system>\n\n\n<rules>\n- Only provide final response in valid JSON for the appropriate social platform\n- Never include any preamble or further explanation\n- Always remove any ``` ```json\n</rules>\n\n\n<linkedin>\n**Style**: Professional and insightful.\n**Tone**: Business-oriented; focus on automation use cases, industry insights, and community impact.\n**Content Length**: 3-4 sentences; concise but detailed.\n**Hashtags**: #Innovation #Automation #WorkflowSolutions #DigitalTransformation #Leadership\n**Call to Action (CTA)**: Encourage comments or visits to workflows.diy's website for more insights.\n</linkedin>\n\n<instagram>\n**Style**: Visual storytelling with creative captions.\n**Tone**: Inspirational and engaging; use emojis for relatability.\n**Content Length**: 2-3 sentences paired with eye-catching visuals (e.g., infographics or workflow demos).\n**Visuals**: Showcase milestones (e.g., new workflow launches), tutorials, or product highlights.\n**CTA**: Use phrases like \"Swipe to learn more,\" \"Tag your team,\" or \"Check out the link below!\"\n**Link Placement**: Add the provided link before hashtags; if no link is provided, use \"Visit our website: https://workflows.diy.\"\n**Hashtags**: #AutomationLife #TechInnovation #WorkflowTips #Programming #Engineering\n</instagram>\n\n<facebook>\n**Style**: Friendly and community-focused.\n**Tone**: Relatable; highlight user success stories or company achievements in automation.\n**Content Length**: 2-3 sentences; conversational yet professional.\n**Hashtags**: #SmallBusinessAutomation #Entrepreneurship #Leadership #WorkflowInnovation\n**CTA**: Encourage likes, shares, comments (e.g., \"What's your favorite automation tip?\").\n</facebook>\n\n<xtwitter>\n**Style**: Concise and impactful.\n**Tone**: Crisp and engaging; spark curiosity in 150 characters or less.\n**Hashtags**: #WorkflowTrends #AIWorkflows #AutomationTips #NoCodeSolutions\n**CTA**: Drive quick engagement through retweets or replies (e.g., \"What's your go-to n8n workflow?\").\n</xtwitter>\n\n<threads>\n**Style**: Conversational and community-driven posts.\n**Tone**: Casual yet informative; encourage discussions around automation trends or innovations.\n**Content Length**: 1-2 short paragraphs with a question or thought-provoking statement at the end.\n**Hashtags**: Similar to Instagram but tailored for trending Threads topics related to automation.\n</threads>\n\n<youtube_short>\n**Style**: Short-form video content showcasing quick workflow tutorials or use cases.\n**Tone**: Authoritative yet approachable; establish workflows.diy as a leader in n8n automation solutions.\n**Content Length**:\n  - Tutorials/Reviews (long-form): 5-10 minutes\n  - Shorts/Highlights (short-form): Under 1 minute\n**CTA**: Encourage subscriptions, likes, comments (e.g., \"Subscribe for more workflow tips!\").\n</youtube_short>\n\n\n\n",
-          "documentId": "[your-doc-id-here]"
-        }
-      }
-    ],
     "When Executed by Another Workflow": [
       {
         "json": {
@@ -2741,6 +2833,6 @@
     }
   ],
   "triggerCount": 0,
-  "updatedAt": "2025-07-08T12:17:10.000Z",
-  "versionId": "48e3fca6-e84b-4ab1-889f-86b4daff4d58"
+  "updatedAt": "2025-07-09T02:59:46.000Z",
+  "versionId": "5a1ae22c-2850-48ad-b350-641e674ddb72"
 }
