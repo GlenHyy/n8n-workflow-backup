@@ -440,17 +440,6 @@
         ]
       ]
     },
-    "🤖Social Media Router Agent": {
-      "main": [
-        [
-          {
-            "node": "File Id",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "Social Media Publishing Router": {
       "main": [
         [
@@ -553,27 +542,25 @@
     },
     "OpenRouter Chat Model": {
       "ai_languageModel": [
-        [
-          {
-            "node": "🤖Social Media Router Agent",
-            "type": "ai_languageModel",
-            "index": 0
-          }
-        ]
+        []
       ]
     },
     "OpenRouter Chat Model1": {
       "ai_languageModel": [
-        [
-          {
-            "node": "Prepare Email Contents",
-            "type": "ai_languageModel",
-            "index": 0
-          }
-        ]
+        []
       ]
     },
     "OpenRouter Chat Model2": {
+      "ai_languageModel": [
+        []
+      ]
+    },
+    "OpenRouter Chat Model3": {
+      "ai_languageModel": [
+        []
+      ]
+    },
+    "Google Gemini Chat Model": {
       "ai_languageModel": [
         [
           {
@@ -584,12 +571,45 @@
         ]
       ]
     },
-    "OpenRouter Chat Model3": {
+    "Google Gemini Chat Model2": {
       "ai_languageModel": [
         [
           {
             "node": "Prepare Social Media Email Contents",
             "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model3": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Prepare Email Contents",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model4": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "🤖Social Media Router Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🤖Social Media Router Agent": {
+      "main": [
+        [
+          {
+            "node": "File Id",
+            "type": "main",
             "index": 0
           }
         ]
@@ -600,7 +620,7 @@
   "id": "K1Fg4DcX1LOClhh1",
   "isArchived": false,
   "meta": null,
-  "name": "Social Media Content Factory",
+  "name": "Muti-Social Media Content Factory",
   "nodes": [
     {
       "parameters": {
@@ -711,7 +731,7 @@
             },
             {
               "name": "user_prompt",
-              "stringValue": "={{ $('When chat message received').item.json.chatInput }}"
+              "stringValue": "={{ $('When chat message received').item.json.chatInput || '请生成一条Twitter的爆火图文内容' }}"
             }
           ]
         },
@@ -758,7 +778,7 @@
             },
             {
               "name": "user_prompt",
-              "stringValue": "={{ $('When chat message received').item.json.chatInput }}"
+              "stringValue": "={{ $('When chat message received').item.json.chatInput || '请生成一条instagram的爆火图文内容' }}"
             }
           ]
         },
@@ -782,7 +802,8 @@
         -2500,
         920
       ],
-      "typeVersion": 1.3
+      "typeVersion": 1.3,
+      "disabled": true
     },
     {
       "parameters": {
@@ -853,7 +874,7 @@
             },
             {
               "name": "user_prompt",
-              "stringValue": "={{ $('When chat message received').item.json.chatInput }}"
+              "stringValue": "={{ $('When chat message received').item.json.chatInput || '请生成一条facebook的爆火图文内容' }}"
             }
           ]
         },
@@ -885,7 +906,7 @@
             },
             {
               "name": "user_prompt",
-              "stringValue": "={{ $('When chat message received').item.json.chatInput }}"
+              "stringValue": "={{ $('When chat message received').item.json.chatInput || '请生成一条linkedin的爆火图文内容' }}"
             }
           ]
         },
@@ -947,7 +968,7 @@
             },
             {
               "name": "user_prompt",
-              "stringValue": "={{ $('When chat message received').item.json.chatInput }}"
+              "stringValue": "={{ $('When chat message received').item.json.chatInput || '请生成一条争议大的短视频' }}"
             }
           ]
         },
@@ -979,7 +1000,7 @@
             },
             {
               "name": "user_prompt",
-              "stringValue": "={{ $('When chat message received').item.json.chatInput }}"
+              "stringValue": "={{ $('When chat message received').item.json.chatInput || '请生成一条爆火的Youtube短视频' }}"
             },
             {
               "name": "llm",
@@ -1017,7 +1038,7 @@
     {
       "parameters": {
         "content": "# 🏭Social Media Content Factory",
-        "height": 820,
+        "height": 940,
         "width": 3520,
         "color": 6
       },
@@ -1026,13 +1047,13 @@
       "type": "n8n-nodes-base.stickyNote",
       "position": [
         -2480,
-        1340
+        1320
       ],
       "typeVersion": 1
     },
     {
       "parameters": {
-        "url": "=https://image.pollinations.ai/prompt/{{ $json.output.common_schema.image_suggestion.replaceAll(' ','-').replaceAll(',','').replaceAll('.','').slice(0,100) }}",
+        "url": "=https://image.pollinations.ai/prompt/{{ $json.output.image_suggestion.replaceAll(' ','-').replaceAll(',','').replaceAll('.','').slice(0,100) }}",
         "options": {}
       },
       "id": "5cf7e9f9-fd37-4d0b-8eb9-e6dc4b53415e",
@@ -1140,7 +1161,7 @@
     {
       "parameters": {
         "sendTo": "=ldr.hyland@gmail.com",
-        "subject": "=Social Media Content - {{ $('Social Content').item.json.output.title }}",
+        "subject": "=Social Media Content - {{ $('Social Content').item.json.output.name }}",
         "message": "={{ $json.output }}",
         "options": {
           "appendAttribution": false
@@ -1723,7 +1744,7 @@
               "id": "8c318996-aa79-4970-b8d7-33ae1931c8c6",
               "name": "output",
               "type": "object",
-              "value": "={{ $json.output }}"
+              "value": "={{ typeof $json.output === 'string' ? JSON.parse($json.output.replace(/```json|```/g, '').trim()) : $json.output }}"
             }
           ]
         },
@@ -1839,7 +1860,7 @@
       "name": "Save Social Post to Google Drive",
       "type": "n8n-nodes-base.googleDrive",
       "position": [
-        800,
+        700,
         1940
       ],
       "typeVersion": 3,
@@ -1886,7 +1907,7 @@
       "name": "Google Drive Image Meta",
       "type": "n8n-nodes-base.set",
       "position": [
-        440,
+        340,
         1940
       ],
       "typeVersion": 3.4
@@ -1909,7 +1930,7 @@
       "name": "Social Post JSON",
       "type": "n8n-nodes-base.set",
       "position": [
-        620,
+        520,
         1940
       ],
       "typeVersion": 3.4
@@ -1932,7 +1953,7 @@
       "name": "Respond with Google Drive Id",
       "type": "n8n-nodes-base.set",
       "position": [
-        980,
+        860,
         1940
       ],
       "typeVersion": 3.4
@@ -2218,7 +2239,7 @@
       "name": "File Id",
       "type": "n8n-nodes-base.set",
       "position": [
-        -780,
+        -740,
         200
       ],
       "typeVersion": 3.4
@@ -2237,7 +2258,7 @@
       "name": "Get Social Post from Google Drive",
       "type": "n8n-nodes-base.googleDrive",
       "position": [
-        -600,
+        -580,
         200
       ],
       "typeVersion": 3,
@@ -2455,23 +2476,6 @@
     },
     {
       "parameters": {
-        "promptType": "define",
-        "text": "=You are a helpful assistant that uses the provided tools.  Respond with a valid JSON object.\n\nUser prompt:  {{ $json.chatInput }}",
-        "options": {
-          "systemMessage": "## RULES\n- You do not answer the users questions directly and your sole purpose is to call the appropriate tool to and provide the verbatim response.\n\n## TOOLS\n- create_x_twitter_posts_tool: Use this tool to create X-Twitter posts\n- create_instagram_posts_tool: Use this tool to create Instagram posts\n- create_facebook_posts_tool: Use this tool to create Facebook posts\n- create_linkedin_posts_tool: Use this tool to create LinkedIn posts\n- create_threads_posts_tool: Use this tool to create Threads posts\n- create_youtube_short_tool: Use this tool to create a YouTube short\n\n\n"
-        }
-      },
-      "id": "2cb8eb67-90d6-4572-83a3-4587f5f46828",
-      "name": "🤖Social Media Router Agent",
-      "type": "@n8n/n8n-nodes-langchain.agent",
-      "position": [
-        -1920,
-        200
-      ],
-      "typeVersion": 1.7
-    },
-    {
-      "parameters": {
         "content": "## Prepare Email Approval Contents as HTML",
         "height": 440,
         "width": 400
@@ -2480,7 +2484,7 @@
       "name": "Sticky Note14",
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        -1180,
+        -1200,
         560
       ],
       "typeVersion": 1
@@ -2493,7 +2497,7 @@
       "name": "SerpAPI",
       "type": "@n8n/n8n-nodes-langchain.toolSerpApi",
       "position": [
-        -960,
+        -1000,
         1900
       ],
       "typeVersion": 1,
@@ -2666,7 +2670,7 @@
     {
       "parameters": {
         "promptType": "define",
-        "text": "=Use the HTML template and populate [fields] as required from this: {{ $('pollinations.ai1').item.json.output.toJsonString() }}\n-----\nOnly output HTML without code block tags, preamble or further explanation in the format provided.\n\n## HTML Template\n<table style=\"max-width:640px;min-width:320px;width:100%;border-collapse:collapse;font-family:Arial,sans-serif;margin:20px auto\">\n    <tbody>\n        <tr>\n            <td colspan=\"2\" style=\"background-color:#ffffff;padding:15px;text-align:left\">\n                <img src=\"{{ $json.thumbnailLink }}\" alt=\"{{ $json.output.root_schema.name }}\" style=\"max-width:100%;height:auto;\">\n            </td>\n        </tr>\n        <tr>\n            <td colspan=\"2\" style=\"background-color:#efefef;padding:15px;font-size:20px;text-align:left;font-weight:bold\">\n                {{ $json.output.root_schema.name  }}\n            </td>\n        </tr>\n        <tr>\n            <td style=\"background-color:#f9f9f9;padding:15px;width:30%;text-align:left\"><strong>Platform:</strong></td>\n            <td style=\"background-color:#f9f9f9;padding:15px;text-align:left\">{{ $('Compose Prompt & Schema').item.json.route }}</td>\n        </tr>\n        <tr>\n            <td style=\"background-color:#f9f9f9;padding:15px;width:30%;text-align:left\"><strong>[label_1]:</strong></td>\n            <td style=\"background-color:#f9f9f9;padding:15px;text-align:left\">[content_1]</td>\n        </tr>\n        <tr>\n            <td style=\"background-color:#f1f1f1;padding:15px;text-align:left\"><strong>[label_2]:</strong></td>\n            <td style=\"background-color:#f1f1f1;padding:15px;text-align:left\">[content_2]</td>\n        </tr>\n\n        [continue the pattern ...]\n\n        <tr>\n            <td colspan=\"2\" style=\"background-color:#efefef;padding:15px;text-align:left\">\n                <strong>[footer_label]:</strong> [footer_content]\n            </td>\n        </tr>\n    </tbody>\n</table>\n\n",
+        "text": "=Use the HTML template and populate [fields] as required from this: {{ $('pollinations.ai1').item.json.output.toJsonString() }}\n-----\nOnly output HTML without code block tags, preamble or further explanation in the format provided.\n\n## HTML Template\n<table style=\"max-width:640px;min-width:320px;width:100%;border-collapse:collapse;font-family:Arial,sans-serif;margin:20px auto\">\n    <tbody>\n        <tr>\n            <td colspan=\"2\" style=\"background-color:#ffffff;padding:15px;text-align:left\">\n                <img src=\"{{ $json.thumbnailLink }}\" alt=\"{{ $json.output.name }}\" style=\"max-width:100%;height:auto;\">\n            </td>\n        </tr>\n        <tr>\n            <td colspan=\"2\" style=\"background-color:#efefef;padding:15px;font-size:20px;text-align:left;font-weight:bold\">\n                {{ $json.output.name  }}\n            </td>\n        </tr>\n        <tr>\n            <td style=\"background-color:#f9f9f9;padding:15px;width:30%;text-align:left\"><strong>Platform:</strong></td>\n            <td style=\"background-color:#f9f9f9;padding:15px;text-align:left\">{{ $('Compose Prompt & Schema').item.json.route }}</td>\n        </tr>\n        <tr>\n            <td style=\"background-color:#f9f9f9;padding:15px;width:30%;text-align:left\"><strong>[label_1]:</strong></td>\n            <td style=\"background-color:#f9f9f9;padding:15px;text-align:left\">[content_1]</td>\n        </tr>\n        <tr>\n            <td style=\"background-color:#f1f1f1;padding:15px;text-align:left\"><strong>[label_2]:</strong></td>\n            <td style=\"background-color:#f1f1f1;padding:15px;text-align:left\">[content_2]</td>\n        </tr>\n\n        [continue the pattern ...]\n\n        <tr>\n            <td colspan=\"2\" style=\"background-color:#efefef;padding:15px;text-align:left\">\n                <strong>[footer_label]:</strong> [footer_content]\n            </td>\n        </tr>\n    </tbody>\n</table>\n\n",
         "options": {}
       },
       "id": "6bef845c-1d31-47b7-8eb7-12fca7098d60",
@@ -2731,7 +2735,7 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
       "typeVersion": 1,
       "position": [
-        -2500,
+        -2740,
         640
       ],
       "id": "4bf13e7d-ced1-4556-9ffb-58c723f9adf9",
@@ -2754,7 +2758,7 @@
       "typeVersion": 1,
       "position": [
         -1100,
-        860
+        1000
       ],
       "id": "1ab36811-55d0-457f-a26d-e342ca77d2ca",
       "name": "OpenRouter Chat Model1",
@@ -2763,20 +2767,22 @@
           "id": "iKzEedVHAljs5DI9",
           "name": "OpenRouter account"
         }
-      }
+      },
+      "disabled": true
     },
     {
       "parameters": {
         "model": "google/gemini-2.0-flash-exp:free",
         "options": {
+          "frequencyPenalty": 1,
           "responseFormat": "json_object"
         }
       },
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
       "typeVersion": 1,
       "position": [
-        -1220,
-        1880
+        -1320,
+        1900
       ],
       "id": "7fa94c32-35a9-49f4-87e5-1efc0096c219",
       "name": "OpenRouter Chat Model2",
@@ -2785,7 +2791,8 @@
           "id": "iKzEedVHAljs5DI9",
           "name": "OpenRouter account"
         }
-      }
+      },
+      "disabled": true
     },
     {
       "parameters": {
@@ -2797,7 +2804,7 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
       "typeVersion": 1,
       "position": [
-        540,
+        420,
         1680
       ],
       "id": "b7858156-df43-415d-b95f-1da843f8da7e",
@@ -2808,6 +2815,113 @@
           "name": "OpenRouter account"
         }
       }
+    },
+    {
+      "parameters": {
+        "modelName": "models/gemini-2.0-flash",
+        "options": {
+          "temperature": 0.6
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        -1160,
+        1900
+      ],
+      "id": "796de10f-c36e-435f-ba38-1d93b99695c7",
+      "name": "Google Gemini Chat Model",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "vbe6j0ziYCK7AWjC",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "modelName": "models/gemini-2.0-flash",
+        "options": {
+          "temperature": 0.6
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        540,
+        1680
+      ],
+      "id": "93f02357-a88b-4f37-b4fd-f1eb05193d90",
+      "name": "Google Gemini Chat Model2",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "vbe6j0ziYCK7AWjC",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "modelName": "models/gemini-2.0-flash",
+        "options": {
+          "temperature": 0.6
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        -1100,
+        840
+      ],
+      "id": "7f27b502-02eb-4d87-974d-00e84a294e49",
+      "name": "Google Gemini Chat Model3",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "vbe6j0ziYCK7AWjC",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "modelName": "models/gemini-2.5-flash",
+        "options": {
+          "maxOutputTokens": 100000,
+          "temperature": 0.6
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        -2500,
+        640
+      ],
+      "id": "04722501-d144-4354-a3ab-5c12d4c46d60",
+      "name": "Google Gemini Chat Model4",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "vbe6j0ziYCK7AWjC",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=You are a helpful assistant that uses the provided tools.  Respond with a valid JSON object.\n\nUser prompt:  {{ $json.chatInput }}",
+        "options": {
+          "systemMessage": "\n## RULES\n- You do not answer the users questions directly and your sole purpose is to call the appropriate tool to and provide the verbatim response.\n\n## TOOLS\n- create_x_twitter_posts_tool: Use this tool to create X-Twitter posts\n- create_instagram_posts_tool: Use this tool to create Instagram posts\n- create_facebook_posts_tool: Use this tool to create Facebook posts\n- create_linkedin_posts_tool: Use this tool to create LinkedIn posts\n- create_threads_posts_tool: Use this tool to create Threads posts\n- create_youtube_short_tool: Use this tool to create a YouTube short"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 2,
+      "position": [
+        -1980,
+        200
+      ],
+      "id": "d632421a-3628-4ca2-882b-be46c0e77031",
+      "name": "🤖Social Media Router Agent",
+      "onError": "continueRegularOutput"
     }
   ],
   "pinData": {
@@ -2833,6 +2947,6 @@
     }
   ],
   "triggerCount": 0,
-  "updatedAt": "2025-07-09T02:59:46.000Z",
-  "versionId": "5a1ae22c-2850-48ad-b350-641e674ddb72"
+  "updatedAt": "2025-07-09T09:50:14.000Z",
+  "versionId": "cc0ed47f-383e-4be5-8540-abe94e187acb"
 }
