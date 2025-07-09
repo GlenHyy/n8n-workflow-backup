@@ -587,6 +587,12 @@
         1000
       ],
       "typeVersion": 4.2,
+      "credentials": {
+        "facebookGraphApi": {
+          "id": "cncGf6job9NB49aL",
+          "name": "Facebook Graph account"
+        }
+      },
       "onError": "continueRegularOutput"
     },
     {
@@ -619,6 +625,12 @@
       ],
       "typeVersion": 1,
       "alwaysOutputData": true,
+      "credentials": {
+        "facebookGraphApi": {
+          "id": "cncGf6job9NB49aL",
+          "name": "Facebook Graph account"
+        }
+      },
       "onError": "continueRegularOutput"
     },
     {
@@ -635,6 +647,12 @@
       ],
       "typeVersion": 2,
       "alwaysOutputData": true,
+      "credentials": {
+        "twitterOAuth2Api": {
+          "id": "KrIIiIDDRy6SXDNC",
+          "name": "X account"
+        }
+      },
       "onError": "continueRegularOutput"
     },
     {
@@ -669,6 +687,12 @@
       ],
       "typeVersion": 1,
       "alwaysOutputData": true,
+      "credentials": {
+        "facebookGraphApi": {
+          "id": "cncGf6job9NB49aL",
+          "name": "Facebook Graph account"
+        }
+      },
       "onError": "continueRegularOutput"
     },
     {
@@ -748,7 +772,13 @@
       "typeVersion": 2.1,
       "alwaysOutputData": false,
       "executeOnce": false,
-      "retryOnFail": false
+      "retryOnFail": false,
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "rixMgXzFveoU2Spz",
+          "name": "Gmail account"
+        }
+      }
     },
     {
       "parameters": {
@@ -1190,11 +1220,17 @@
         1440
       ],
       "webhookId": "0a81b95a-cd82-465d-8450-cf38518a4cbb",
-      "typeVersion": 2.1
+      "typeVersion": 2.1,
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "rixMgXzFveoU2Spz",
+          "name": "Gmail account"
+        }
+      }
     },
     {
       "parameters": {
-        "chatId": "={{ $env.TELEGRAM_CHAT_ID }}",
+        "chatId": "=-4975698104",
         "text": "={{ $json.output }}",
         "additionalFields": {
           "appendAttribution": false
@@ -1208,7 +1244,13 @@
         1720
       ],
       "webhookId": "bb40ede7-03cf-493d-b051-196b96725925",
-      "typeVersion": 1.2
+      "typeVersion": 1.2,
+      "credentials": {
+        "telegramApi": {
+          "id": "4iWBsb2gQ2zPn2xL",
+          "name": "Telegram account"
+        }
+      }
     },
     {
       "parameters": {
@@ -1327,7 +1369,13 @@
         820,
         520
       ],
-      "typeVersion": 1
+      "typeVersion": 1,
+      "credentials": {
+        "serpApi": {
+          "id": "fQ0am4AxxOCQTfNf",
+          "name": "SerpAPI account"
+        }
+      }
     },
     {
       "parameters": {
@@ -1407,7 +1455,13 @@
         1160
       ],
       "id": "000b10de-1c17-42dd-8b48-118c745d26ce",
-      "name": "OpenRouter Chat Model"
+      "name": "OpenRouter Chat Model",
+      "credentials": {
+        "openRouterApi": {
+          "id": "iKzEedVHAljs5DI9",
+          "name": "OpenRouter account"
+        }
+      }
     },
     {
       "parameters": {
@@ -1423,7 +1477,13 @@
         1600
       ],
       "id": "dc4c758d-c0a1-4c10-9b1c-f6821dd67d5e",
-      "name": "OpenRouter Chat Model1"
+      "name": "OpenRouter Chat Model1",
+      "credentials": {
+        "openRouterApi": {
+          "id": "iKzEedVHAljs5DI9",
+          "name": "OpenRouter account"
+        }
+      }
     },
     {
       "parameters": {
@@ -1439,7 +1499,13 @@
         1880
       ],
       "id": "6f3eef8d-7d84-41fe-89a3-7d740aaec4b9",
-      "name": "OpenRouter Chat Model2"
+      "name": "OpenRouter Chat Model2",
+      "credentials": {
+        "openRouterApi": {
+          "id": "iKzEedVHAljs5DI9",
+          "name": "OpenRouter account"
+        }
+      }
     },
     {
       "parameters": {
@@ -1455,7 +1521,13 @@
         540
       ],
       "id": "ee660036-d100-42d1-974c-30aa24c6a49f",
-      "name": "OpenRouter Chat Model3"
+      "name": "OpenRouter Chat Model3",
+      "credentials": {
+        "openRouterApi": {
+          "id": "iKzEedVHAljs5DI9",
+          "name": "OpenRouter account"
+        }
+      }
     },
     {
       "parameters": {
@@ -1471,7 +1543,13 @@
         520
       ],
       "id": "2f4c71e3-351e-4412-bcc8-921c4ac961aa",
-      "name": "OpenRouter Chat Model4"
+      "name": "OpenRouter Chat Model4",
+      "credentials": {
+        "openRouterApi": {
+          "id": "iKzEedVHAljs5DI9",
+          "name": "OpenRouter account"
+        }
+      }
     }
   ],
   "pinData": {
@@ -1500,6 +1578,6 @@
     }
   ],
   "triggerCount": 0,
-  "updatedAt": "2025-07-08T12:16:01.000Z",
-  "versionId": "78dfed68-cac5-411a-85a6-cf8b9c4c1c17"
+  "updatedAt": "2025-07-09T02:05:50.000Z",
+  "versionId": "ac3cb6ae-9a12-4179-bd2c-bdfe0918629d"
 }
