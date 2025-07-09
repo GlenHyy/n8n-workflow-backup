@@ -201,7 +201,7 @@
       "main": [
         [
           {
-            "node": "AI Agent",
+            "node": "prompt2img",
             "type": "main",
             "index": 0
           }
@@ -303,49 +303,30 @@
     },
     "OpenRouter Chat Model": {
       "ai_languageModel": [
-        [
-          {
-            "node": "AI Agent",
-            "type": "ai_languageModel",
-            "index": 0
-          }
-        ]
+        []
       ]
     },
     "OpenRouter Chat Model1": {
       "ai_languageModel": [
-        [
-          {
-            "node": "Prepare Results Email",
-            "type": "ai_languageModel",
-            "index": 0
-          }
-        ]
+        []
       ]
     },
     "OpenRouter Chat Model2": {
       "ai_languageModel": [
-        [
-          {
-            "node": "Prepare Results Message",
-            "type": "ai_languageModel",
-            "index": 0
-          }
-        ]
+        []
       ]
     },
     "OpenRouter Chat Model3": {
       "ai_languageModel": [
-        [
-          {
-            "node": "Prepare Content Review Email",
-            "type": "ai_languageModel",
-            "index": 0
-          }
-        ]
+        []
       ]
     },
     "OpenRouter Chat Model4": {
+      "ai_languageModel": [
+        []
+      ]
+    },
+    "Google Gemini LLM": {
       "ai_languageModel": [
         [
           {
@@ -356,7 +337,58 @@
         ]
       ]
     },
-    "AI Agent": {
+    "Google Gemini Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Prepare Content Review Email",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model3": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Prepare Results Message",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model2": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Prepare Results Email",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "prompt2img": {
+      "main": [
+        [
+          {
+            "node": "Img_url2Binary",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Telegram Error Message (Optional)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Img_url2Binary": {
       "main": [
         [
           {
@@ -456,17 +488,23 @@
       "parameters": {
         "modelName": "models/gemini-2.0-flash-exp",
         "options": {
-          "temperature": 0.4
+          "temperature": 0.6
         }
       },
       "id": "ccc7163e-da2b-44d2-a06a-dbd5cbcf9514",
       "name": "Google Gemini LLM",
       "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
       "position": [
-        540,
-        500
+        660,
+        520
       ],
-      "typeVersion": 1
+      "typeVersion": 1,
+      "credentials": {
+        "googlePalmApi": {
+          "id": "vbe6j0ziYCK7AWjC",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
     },
     {
       "parameters": {
@@ -553,7 +591,7 @@
       "name": "Save Image to imgbb.com3",
       "type": "n8n-nodes-base.httpRequest",
       "position": [
-        720,
+        740,
         920
       ],
       "typeVersion": 4.2
@@ -1423,26 +1461,6 @@
     },
     {
       "parameters": {
-        "promptType": "define",
-        "text": "={{ $('Social Media Content Factory').item.json.output.platform_posts.Instagram.caption }}",
-        "hasOutputParser": true,
-        "options": {
-          "systemMessage": "You are a helpful expert in generating binary images.",
-          "passthroughBinaryImages": true
-        }
-      },
-      "type": "@n8n/n8n-nodes-langchain.agent",
-      "typeVersion": 2,
-      "position": [
-        340,
-        1020
-      ],
-      "id": "b39e5aa7-df18-4c77-a073-9fe676718d0c",
-      "name": "AI Agent",
-      "alwaysOutputData": true
-    },
-    {
-      "parameters": {
         "model": "qwen/qwen2.5-vl-72b-instruct:free",
         "options": {
           "responseFormat": "json_object"
@@ -1451,8 +1469,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
       "typeVersion": 1,
       "position": [
-        340,
-        1160
+        180,
+        1180
       ],
       "id": "000b10de-1c17-42dd-8b48-118c745d26ce",
       "name": "OpenRouter Chat Model",
@@ -1473,8 +1491,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
       "typeVersion": 1,
       "position": [
-        360,
-        1600
+        620,
+        1580
       ],
       "id": "dc4c758d-c0a1-4c10-9b1c-f6821dd67d5e",
       "name": "OpenRouter Chat Model1",
@@ -1495,7 +1513,7 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
       "typeVersion": 1,
       "position": [
-        360,
+        620,
         1880
       ],
       "id": "6f3eef8d-7d84-41fe-89a3-7d740aaec4b9",
@@ -1517,8 +1535,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
       "typeVersion": 1,
       "position": [
-        1760,
-        540
+        1880,
+        520
       ],
       "id": "ee660036-d100-42d1-974c-30aa24c6a49f",
       "name": "OpenRouter Chat Model3",
@@ -1527,7 +1545,8 @@
           "id": "iKzEedVHAljs5DI9",
           "name": "OpenRouter account"
         }
-      }
+      },
+      "disabled": true
     },
     {
       "parameters": {
@@ -1539,8 +1558,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
       "typeVersion": 1,
       "position": [
-        680,
-        520
+        480,
+        540
       ],
       "id": "2f4c71e3-351e-4412-bcc8-921c4ac961aa",
       "name": "OpenRouter Chat Model4",
@@ -1548,6 +1567,143 @@
         "openRouterApi": {
           "id": "iKzEedVHAljs5DI9",
           "name": "OpenRouter account"
+        }
+      },
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "modelName": "models/gemini-2.5-flash",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        1760,
+        520
+      ],
+      "id": "37ea29d5-15c6-45f0-827f-962cb2af0dd3",
+      "name": "Google Gemini Chat Model",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "vbe6j0ziYCK7AWjC",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "modelName": "models/gemini-2.5-flash",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        380,
+        1600
+      ],
+      "id": "2e42ee22-aa0f-4a5e-8eea-e289facdb7bb",
+      "name": "Google Gemini Chat Model2",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "vbe6j0ziYCK7AWjC",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "modelName": "models/gemini-2.5-flash",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        380,
+        1880
+      ],
+      "id": "5180c0f2-e085-4763-9751-7c6595e77953",
+      "name": "Google Gemini Chat Model3",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "vbe6j0ziYCK7AWjC",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.siliconflow.cn/v1/images/generations",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"model\": \"Kwai-Kolors/Kolors\",\n  \"prompt\": \"You are a helpful expert in generating binary images.Images description:{{ $('Social Media Content Factory').item.json.output.platform_posts.Instagram.caption }}\",\n  \"image_size\": \"1024x1024\",\n  \"batch_size\": 1,\n  \"num_inference_steps\": 20,\n  \"guidance_scale\": 7.5\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        360,
+        1100
+      ],
+      "id": "084d87af-f593-461b-a5eb-ad7602b6f152",
+      "name": "prompt2img",
+      "retryOnFail": true,
+      "maxTries": 5,
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "weEBRVbqmOKEjkgV",
+          "name": "siliconflow(硅基流动-Api_key)"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "url": "={{ $json.images[0].url }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        500,
+        1020
+      ],
+      "id": "46a90dfe-6643-4ea3-a1c7-9687da5ec152",
+      "name": "Img_url2Binary"
+    },
+    {
+      "parameters": {
+        "chatId": "-4975698104",
+        "text": "Error creating image (Debugging)",
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "id": "ad5395d7-caca-4385-80e4-b99438ffa013",
+      "name": "Telegram Error Message (Optional)",
+      "type": "n8n-nodes-base.telegram",
+      "position": [
+        740,
+        1120
+      ],
+      "webhookId": "93342863-02c0-42ee-98c3-a2ec72b3bf12",
+      "typeVersion": 1.2,
+      "credentials": {
+        "telegramApi": {
+          "id": "4iWBsb2gQ2zPn2xL",
+          "name": "Telegram account"
         }
       }
     }
@@ -1578,6 +1734,6 @@
     }
   ],
   "triggerCount": 0,
-  "updatedAt": "2025-07-09T02:05:50.000Z",
-  "versionId": "ac3cb6ae-9a12-4179-bd2c-bdfe0918629d"
+  "updatedAt": "2025-07-09T13:41:50.000Z",
+  "versionId": "7430de94-b131-47e2-8e7e-468aa4f63aba"
 }
