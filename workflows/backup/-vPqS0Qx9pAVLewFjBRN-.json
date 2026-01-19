@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-01-16T07:56:31.000Z",
-    "createdAt": "2026-01-16T07:56:29.755Z",
-    "versionId": "b3fdb0f8-544d-4429-8af2-a8ee3e67c526",
+    "updatedAt": "2026-01-19T02:29:14.000Z",
+    "createdAt": "2026-01-19T02:29:02.290Z",
+    "versionId": "637bff89-c910-495f-a1d5-2b2ce0ff496c",
     "workflowId": "-vPqS0Qx9pAVLewFjBRN-",
     "nodes": [
       {
@@ -48,6 +48,7 @@
           432
         ],
         "typeVersion": 1,
+        "retryOnFail": true,
         "credentials": {
           "n8nApi": {
             "id": "VsyTAeZyJBrjHxjv",
@@ -828,11 +829,11 @@
       }
     },
     "authors": "huang yong",
-    "name": "Version b3fdb0f8",
+    "name": "Version 637bff89",
     "description": "",
     "autosaved": false
   },
-  "activeVersionId": "b3fdb0f8-544d-4429-8af2-a8ee3e67c526",
+  "activeVersionId": "637bff89-c910-495f-a1d5-2b2ce0ff496c",
   "connections": {
     "/": {
       "main": [
@@ -1139,6 +1140,7 @@
         432
       ],
       "typeVersion": 1,
+      "retryOnFail": true,
       "credentials": {
         "n8nApi": {
           "id": "VsyTAeZyJBrjHxjv",
@@ -1696,6 +1698,6 @@
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2026-01-16T08:03:41.706Z",
-  "versionId": "b3fdb0f8-544d-4429-8af2-a8ee3e67c526"
+  "updatedAt": "2026-01-19T02:29:02.288Z",
+  "versionId": "637bff89-c910-495f-a1d5-2b2ce0ff496c"
 }
